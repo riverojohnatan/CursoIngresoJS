@@ -1,10 +1,11 @@
 function mostrar()
 {
+    var gender = '';
 
-var sexo = prompt("ingrese f ó m .");
+    while(gender !== 'f' && gender !== 'm' && gender !== null) {
+        gender = prompt("ingrese f ó m .");
+    }
 
-
-
-document.getElementById('Sexo').value=sexo;
+    document.getElementById('Sexo').value=gender;
 
 }//FIN DE LA FUNCIÓN
