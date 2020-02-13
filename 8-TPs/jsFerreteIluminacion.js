@@ -8,17 +8,59 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
  */
-var precio = 35;
+var PRECIO = 35;
 function CalcularPrecio () 
 {
      var cantidad = parseInt(document.getElementById('Cantidad').value, 10);
      var marca = document.getElementById('Marca').value;
+     var mensaje = '';
+     var resultado;
+     var descuento = 1;
 
      if (!isNaN(cantidad)) {
-         var resultado = 0;
          if (cantidad > 5) {
-            resultado = cantidad * precio * 0.5;
-         } else if (cantidad == 5){}
-         document.getElementById('precioDescuento').value = `$ ${resultado}`;
+             descuento = 0.5;
+         } else {
+             switch (marca) {
+                 case 'ArgentinaLuz':
+                     if (cantidad === 5) {
+                         descuento = 0.6;
+                     } else if (cantidad === 4) {
+                         descuento = 0.75
+                     } else if (cantidad === 3) {
+                         descuento = 0.85
+                     }
+                     break;
+                 case 'FelipeLamparas':
+                     if (cantidad === 5) {
+                         descuento = 0.70;
+                     } else if (cantidad === 4) {
+                         descuento = 0.75
+                     } else if (cantidad === 3) {
+                         descuento = 0.90
+                     }
+                     break;
+                 default:
+                     if (cantidad === 5) {
+                         descuento = 0.70;
+                     } else if (cantidad === 4) {
+                         descuento = 0.80
+                     } else if (cantidad === 3) {
+                         descuento = 0.95
+                     }
+             }
+         }
+
+         resultado = cantidad * PRECIO * descuento;
+
+         if (resultado > 120) {
+             var imp = resultado * 0.1;
+             resultado+= imp;
+             mensaje = `$ ${resultado}. Usted pago ${imp} de IIBB.`;
+         } else {
+             mensaje = `$ ${resultado}`;
+         }
+
+         document.getElementById('precioDescuento').value = mensaje;
      }
 }
