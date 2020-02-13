@@ -8,7 +8,7 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
  */
-var PRECIO = 35;
+
 function CalcularPrecio () 
 {
      var cantidad = parseInt(document.getElementById('Cantidad').value, 10);
@@ -16,36 +16,37 @@ function CalcularPrecio ()
      var mensaje = '';
      var resultado;
      var descuento = 1;
+     var PRECIO = 35;
 
      if (!isNaN(cantidad)) {
          if (cantidad > 5) {
              descuento = 0.5;
          } else {
-             switch (cantidad) {
-                 case 5:
-                     if (marca === 'ArgentinaLuz') {
-                         descuento = 0.60;
-                     } else {
-                         descuento = 0.70;
-                     }
-                     break;
-                 case 4:
-                     if (marca === 'ArgentinaLuz' || marca === 'FelipeLamparas') {
-                         descuento = 0.75;
-                     } else {
-                         descuento = 0.80;
-                     }
-                     break;
-                 case 3:
-                     if (marca === 'ArgentinaLuz') {
-                        descuento = 0.85;
-                     } else if(marca === 'FelipeLamparas') {
-                        descuento = 0.90;
-                     } else {
-                        descuento = 0.95;
-                     }
-                     break;
-             }
+            if (marca == 'ArgentinaLuz') {
+                if (cantidad == 5) {
+                    descuento = 0.60;
+                } else if (cantidad == 4) {
+                    descuento = 0.75;
+                } else if (cantidad == 3) {
+                    descuento = 0.85;
+                }
+            } else if (marca === 'FelipeLamparas') {
+                if (cantidad == 5) {
+                    descuento = 0.70;
+                } else if (cantidad == 4) {
+                    descuento = 0.75;
+                } else if (cantidad == 3) {
+                    descuento = 0.90;
+                }
+            } else {
+                if (cantidad == 5) {
+                    descuento = 0.70;
+                } else if (cantidad == 4) {
+                    descuento = 0.80;
+                } else if (cantidad == 3) {
+                    descuento = 0.95;
+                }
+            }
          }
 
          resultado = cantidad * PRECIO * descuento;
