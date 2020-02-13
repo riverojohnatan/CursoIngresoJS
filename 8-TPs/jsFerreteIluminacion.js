@@ -21,33 +21,30 @@ function CalcularPrecio ()
          if (cantidad > 5) {
              descuento = 0.5;
          } else {
-             switch (marca) {
-                 case 'ArgentinaLuz':
-                     if (cantidad === 5) {
-                         descuento = 0.6;
-                     } else if (cantidad === 4) {
-                         descuento = 0.75
-                     } else if (cantidad === 3) {
-                         descuento = 0.85
+             switch (cantidad) {
+                 case 5:
+                     if (marca === 'ArgentinaLuz') {
+                         descuento = 0.60;
+                     } else {
+                         descuento = 0.70;
                      }
                      break;
-                 case 'FelipeLamparas':
-                     if (cantidad === 5) {
-                         descuento = 0.70;
-                     } else if (cantidad === 4) {
-                         descuento = 0.75
-                     } else if (cantidad === 3) {
-                         descuento = 0.90
+                 case 4:
+                     if (marca === 'ArgentinaLuz' || marca === 'FelipeLamparas') {
+                         descuento = 0.75;
+                     } else {
+                         descuento = 0.80;
                      }
                      break;
-                 default:
-                     if (cantidad === 5) {
-                         descuento = 0.70;
-                     } else if (cantidad === 4) {
-                         descuento = 0.80
-                     } else if (cantidad === 3) {
-                         descuento = 0.95
+                 case 3:
+                     if (marca === 'ArgentinaLuz') {
+                        descuento = 0.85;
+                     } else if(marca === 'FelipeLamparas') {
+                        descuento = 0.90;
+                     } else {
+                        descuento = 0.95;
                      }
+                     break;
              }
          }
 
