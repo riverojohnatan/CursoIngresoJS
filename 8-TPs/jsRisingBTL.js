@@ -9,5 +9,36 @@ F.	Nacionalidad, “A” para argentinos, “E” para extranjeros, “N” para
  */
 function ComenzarIngreso () 
 {
- 
+    if (validarEdad() && validarSexo() && validarEstadoCivil() 
+    && validarSueldo() && validarLegajo() && validarNacionalidad()) {
+        alert("Informacion valida");
+    }
+}
+
+function validarEdad() {
+    var edad = parseInt(document.getElementById('Edad').value, 10);
+
+    if (isNaN(edad) || edad < 18 || edad > 90) {
+        alert("Edad invalida, debe ser numerico y entre 18 a 90 inclusive");
+        return false;
+    }
+
+    return true;
+}
+
+function validarSexo() {
+    var sexo = document.getElementById('Sexo').value;
+
+    if (sexo != 'F' && sexo != 'M') {
+        alert("Sexo invalido. Opciones: M - Masculino | F - Femenino");
+        return false;
+    }
+
+    return true;
+}
+
+function validarEstadoCivil() {
+    var estadoCivil = parseInt(document.getElementById('EstadoCivil').value, 10);
+
+    if (isNaN(estadoCivil) || estadoCivil < 1)
 }
