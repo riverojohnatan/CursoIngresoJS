@@ -15,5 +15,6 @@ function mostrar()
             break;
         default:
             alert('31');
+            break;
     }
 }//FIN DE LA FUNCIÓN

@@ -38,6 +38,7 @@ function mostrar()
             break;
         default:
             alert('La hora no existe.');
+            break;
     }
 
 
