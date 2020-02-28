@@ -16,6 +16,9 @@ function mostrar()
 
     do {
         marca = prompt("Ingrese marca");
+        while(marca == "") {
+            marca = prompt("Dato erroneo. Por favor ingrese una marca valida");
+        }
         
         do {
             peso = parseInt(prompt("Ingresar peso"), 10);
